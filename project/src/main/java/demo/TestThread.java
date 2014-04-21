@@ -25,6 +25,15 @@ public class TestThread {
             }
         };
 
+        t1.start();
+
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
         Thread t2 = new Thread() {
             @Override
             public void run() {
@@ -40,9 +49,7 @@ public class TestThread {
             }
         };
 
-        t1.start();
         t2.start();
-
 
         for (int i = 0; i < 10; i++) {
             try {
@@ -55,7 +62,6 @@ public class TestThread {
         }
 
         try {
-            t1.join();
             t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
