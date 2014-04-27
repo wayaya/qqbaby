@@ -1,5 +1,8 @@
 package demo;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * Created with IntelliJ IDEA.
  * User: wayaya
@@ -11,6 +14,7 @@ public class Formula {
 
     /**
      * 返回数组中第二大数据
+     * 只遍历一次，就找出第二大数据
      * @param data 数组
      * @return Interger secondMax,null表示未找到
      */
@@ -35,4 +39,8 @@ public class Formula {
 
         return secondMax;//返回1表示成功
     }
+
+
+
+
 }

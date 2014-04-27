@@ -1,0 +1,6 @@
+project/.idea
+project/target
+project/classes
+
+project/myapp/myapp.iml
+project/project.iml
