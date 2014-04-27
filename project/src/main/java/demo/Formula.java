@@ -15,6 +15,7 @@ public class Formula {
     /**
      * 返回数组中第二大数据
      * 只遍历一次，就找出第二大数据
+     *
      * @param data 数组
      * @return Interger secondMax,null表示未找到
      */
@@ -40,7 +41,17 @@ public class Formula {
         return secondMax;//返回1表示成功
     }
 
-
+    /**
+     * 主函数
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        int[] data = {1, 4, 7, 9, 6, 8};
+        Formula formula = new Formula();
+        int result = formula.GetSecondMaxNumber(data);
+        System.out.println("result = " + result);
+    }
 
 
 }
