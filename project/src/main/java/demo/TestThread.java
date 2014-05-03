@@ -10,6 +10,7 @@ public class TestThread {
     public static void main(String[] args) {
 
         System.out.println("start:" + System.currentTimeMillis());
+
         Thread t1 = new Thread() {
             @Override
             public void run() {
@@ -25,19 +26,10 @@ public class TestThread {
             }
         };
 
-        t1.start();
-
-        try {
-            t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
         Thread t2 = new Thread() {
             @Override
             public void run() {
-                for (int i = 0; i < 100; i++) {
+                for (int i = 0; i < 30; i++) {
                     try {
                         Thread.sleep(10);
                         System.out.println(Thread.currentThread().getName() + ":" + i);
@@ -49,8 +41,11 @@ public class TestThread {
             }
         };
 
+        //创建两个线程，并启动
+        t1.start();
         t2.start();
 
+        //同时主线程也开始跑逻辑，但是主线程跑的时间段，两个子线程需要在主线程进行合并
         for (int i = 0; i < 10; i++) {
             try {
                 Thread.sleep(10);
@@ -60,6 +55,15 @@ public class TestThread {
             }
 
         }
+
+
+        //两个子线程需要在，主线程中进行合并
+        try {
+            t1.join(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
         try {
             t2.join();
